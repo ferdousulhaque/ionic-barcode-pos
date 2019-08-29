@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Update Product</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list inset>
+
+    <ion-item>
+      <ion-label>Code</ion-label>
+      <ion-input type="text" [(ngModel)]='prodCodeNew'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]='prodName'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Price</ion-label>
+      <ion-input type="number" [(ngModel)]='prodPrice'></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  <button ion-button block color="primary" (click)="addproduct()">Update</button>
+  <button ion-button block color="primary" (click)="scanQR()">Scan Code</button>
+  <button ion-button block color="danger" (click)="deleteproduct()">Delete</button>
+</ion-content>
