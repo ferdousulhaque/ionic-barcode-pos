@@ -31,8 +31,8 @@ export class ListPage {
     })
   }
 
-  singleProduct(code){
-    this.navCtrl.push(SingleProductPage, {'code': code});
+  singleProduct(data){
+    this.navCtrl.push(SingleProductPage, {'data': data});
   }
 
 }

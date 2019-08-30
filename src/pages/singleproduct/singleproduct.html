@@ -12,19 +12,19 @@
 
     <ion-item>
       <ion-label>Code</ion-label>
-      <ion-input type="text" [(ngModel)]='prodCodeNew'></ion-input>
+      <ion-input type="text" [(ngModel)]='product.code'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Name</ion-label>
-      <ion-input type="text" [(ngModel)]='prodName'></ion-input>
+      <ion-input type="text" [(ngModel)]='product.name'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Price</ion-label>
-      <ion-input type="number" [(ngModel)]='prodPrice'></ion-input>
+      <ion-input type="number" [(ngModel)]='product.price'></ion-input>
     </ion-item>
   
   </ion-list>
   <button ion-button block color="primary" (click)="addproduct()">Update</button>
   <button ion-button block color="primary" (click)="scanQR()">Scan Code</button>
-  <button ion-button block color="danger" (click)="deleteproduct()">Delete</button>
+  <button ion-button block color="danger" (click)="deleteproduct(product)">Delete</button>
 </ion-content>

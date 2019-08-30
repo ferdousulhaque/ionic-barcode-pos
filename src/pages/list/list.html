@@ -12,7 +12,7 @@
     <ion-item *ngFor="let product of listProducts">
       <h2>{{product.name}}</h2>
       <p>Price: {{product.price}} USD</p>
-      <button ion-button clear item-end (click)="singleProduct(product.code)">View</button>
+      <button ion-button clear item-end (click)="singleProduct(product)">View</button>
     </ion-item>
   </ion-list>
 </ion-content>

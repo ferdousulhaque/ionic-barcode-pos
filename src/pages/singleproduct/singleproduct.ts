@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StorageProvider} from '../../providers/storage/storage';
+import { ListPage } from '../list/list';
 
 @Component({
   selector: 'page-single-product',
@@ -9,25 +10,32 @@ import { StorageProvider} from '../../providers/storage/storage';
 })
 export class SingleProductPage {
 
-  prodCodeOld: any = "";
-  prodCodeNew: any = "";
-  prodName: any = "";
-  prodPrice: number = 0;
-  listProduct: any;
+  prodCodeOld: any;
+  product: any;
 
   constructor(public navCtrl: NavController,
               public barcodeScanner: BarcodeScanner,
               public navParams: NavParams,
               public sp: StorageProvider
               ) {
-    this.prodCodeOld = this.navParams.get("code");
+    this.product = this.navParams.get("data");
+    this.prodCodeOld = this.product.code;
+  }
+
+  scanQR(){
+    this.barcodeScanner.scan().then(barcodeData => {
+        //this.prodCode = barcodeData.text;
+        this.navCtrl.setRoot(SingleProductPage,{code: barcodeData.text})
+    }).catch(err => {
+        console.log('Error', err);
+    });
   }
 
   updateProduct(){
     const data = {
-      "code": this.prodCodeNew,
-      "name": this.prodName,
-      "price": this.prodPrice
+      "code": this.product.code,
+      "name": this.product.name,
+      "price": this.product.price
     };
 
     console.log(data);
@@ -37,7 +45,9 @@ export class SingleProductPage {
     }) */
   }
 
-  deleteproduct(){
-    this.sp.deleteProduct(this.prodCodeOld);
+  deleteproduct(data){
+    this.sp.deleteProduct(data).then(() => {
+      this.navCtrl.setRoot(ListPage);
+    });
   }
 }

@@ -6,6 +6,7 @@ import { Storage } from '@ionic/storage';
 export class StorageProvider {
 
   //public http: HttpClient,
+  products: any = [];
 
   constructor(
               private storage: Storage) {
@@ -19,12 +20,15 @@ export class StorageProvider {
   }
 
   addProduct(data){
-    let products = [];
-
-    products.push(data);
-
     return new Promise((resolve, reject) => {
-      this.storage.set('products', JSON.stringify(products));
+      
+      this.storage.get('products').then(val => {
+        this.products = JSON.parse(val);
+        //console.log(this.products);
+        this.products.push(data);
+        this.storage.set('products', JSON.stringify(this.products));
+      }) 
+      
       resolve();
       if(reject){
         resolve()
@@ -37,12 +41,27 @@ export class StorageProvider {
   }
 
   updateProduct(data, old_code){
+    data.foreach((val)=> {
+      if(val.code == old_code){
 
+      }
+    })
   }
 
-  deleteProduct(code){
-    //products = this.storage.get('products');
-    
+  deleteProduct(data){
+    return new Promise ((resolve) => {
+        this.getProducts().then((products) => {
+        let arr = [];
+        let arr2 = [];
+        arr = JSON.parse(products);
+        arr2 = arr.filter((val) => {
+          return (val.code != data.code && val.name != data.name);
+        })
+        
+        this.storage.set('products', JSON.stringify(arr2));
+        resolve();
+      });
+    });
   }
 
   /* addProduct(data){
