@@ -11,14 +11,12 @@ export class ListPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
-  listProducts: Array<{code: string, name: string, price: string}>;
+  listProducts: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public sp: StorageProvider) {
-    /* this.sp.getProducts().then((val) => {
-      this.listProducts = JSON.parse(val)
-    }) */
+    this.ionViewDidLoad();
   }
 
   ionViewDidLoad() {
@@ -26,13 +24,17 @@ export class ListPage {
   }
 
   getProducts(){
-    this.sp.getProducts().then((val) => {
-      this.listProducts = JSON.parse(val)
+    this.sp.storageReady().then(() => {
+      this.sp.getProducts().then((val) => {
+        this.listProducts = JSON.parse(val);
+      }).catch(err => {
+        alert("Error: "+ err);
+      })
     })
   }
 
   singleProduct(data){
-    this.navCtrl.push(SingleProductPage, {'data': data});
+    this.navCtrl.setRoot(SingleProductPage, {'data': data});
   }
 
 }

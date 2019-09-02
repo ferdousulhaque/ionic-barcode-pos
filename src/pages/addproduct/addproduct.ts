@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StorageProvider} from '../../providers/storage/storage';
+import { ListPage } from '../list/list';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-add-product',
@@ -17,7 +19,8 @@ export class AddProductPage {
   constructor(public navCtrl: NavController,
               public barcodeScanner: BarcodeScanner,
               public navParams: NavParams,
-              public sp: StorageProvider
+              public sp: StorageProvider,
+              public toastCtrl: ToastController
               ) {
                 this.prodCode = this.navParams.get("code");
   }
@@ -38,8 +41,16 @@ export class AddProductPage {
       "price": this.prodPrice
     };
 
-    this.sp.addProduct(data).then(()=>{
-      alert("Product Added Successfully")
+    this.sp.storageReady().then(() => {
+      this.sp.addProduct(data);
+      setTimeout(()=> {
+        let toast = this.toastCtrl.create({
+          message: 'Added new Product',
+          duration: 3000
+        });
+        toast.present();
+        this.navCtrl.setRoot(ListPage);
+      },1000)
     })
   }
 }

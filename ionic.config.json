@@ -1,5 +1,5 @@
 {
-  "name": "qrcode",
+  "name": "barcode-mpos",
   "integrations": {
     "cordova": {}
   },

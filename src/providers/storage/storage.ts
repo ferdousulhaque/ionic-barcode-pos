@@ -1,43 +1,57 @@
-//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class StorageProvider {
 
-  //public http: HttpClient,
+  //
   products: any = [];
 
-  constructor(
-              private storage: Storage) {
-    //console.log('Hello StorageProvider Provider');
-    //storage.set('products', {});
-
-    // Or to get a key/value pair
-    
-
-
+  static get parameters() {
+    return [[Storage]];
   }
+  
+
+  constructor(
+    private storage: Storage,
+              ) {
+                /* this.storage.ready().then(() => {
+                    this.storage.set('products', JSON.stringify([]));
+                }); */
+              }
 
   addProduct(data){
-    return new Promise((resolve, reject) => {
-      
-      this.storage.get('products').then(val => {
+    this.storage.ready().then(() => {
+      this.storage.get('products').then((val) => {
         this.products = JSON.parse(val);
-        //console.log(this.products);
         this.products.push(data);
         this.storage.set('products', JSON.stringify(this.products));
-      }) 
-      
-      resolve();
-      if(reject){
-        resolve()
-      }
-    });
+        this.products = JSON.stringify(this.products)
+      }).catch(err => {
+        alert(err);
+      })
+    })
   }
 
   getProducts(){
     return this.storage.get('products');
+  }
+
+  searchProduct(barcode){
+    let needle = {};
+    return new Promise((resolve, reject) => {
+      this.storage.ready().then(() => {
+        this.storage.get('products').then((val) => {
+          this.products = JSON.parse(val);
+          needle = this.products.filter((product) => {
+            return (product.code === barcode);
+          })
+          resolve(needle);
+        }).catch(err => {
+          alert(err+1);
+        })
+      })
+    })
   }
 
   updateProduct(data, old_code){
@@ -49,35 +63,24 @@ export class StorageProvider {
   }
 
   deleteProduct(data){
-    return new Promise ((resolve) => {
-        this.getProducts().then((products) => {
+    this.storage.ready().then(() => {
+      this.storage.get('products').then((val) => {
+        this.products = JSON.parse(val);
         let arr = [];
         let arr2 = [];
-        arr = JSON.parse(products);
+        arr = this.products;
         arr2 = arr.filter((val) => {
           return (val.code != data.code && val.name != data.name);
         })
-        
         this.storage.set('products', JSON.stringify(arr2));
-        resolve();
-      });
-    });
+      }).catch(err => {
+        alert(err+1);
+      })
+    })
   }
 
-  /* addProduct(data){
-    let products = [];
-    this.storage.get('products').then((val) => {
-      //products = JSON.parse(val);
-      console.log(val);
-    });
-    //products.push(data);
-    //console.log(JSON.stringify(products));
-    //console.log(JSON.parse(JSON.stringify(products)));
-    this.storage.set('products', JSON.stringify(products)).then(() =>{
-      this.storage.get('products').then((val) => {
-        console.log(JSON.parse(val));
-      });
-    });
-  } */
+  storageReady(){
+    return this.storage.ready();
+  }
 
 }

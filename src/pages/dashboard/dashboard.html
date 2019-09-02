@@ -17,7 +17,7 @@
               <ion-label>Total</ion-label>
             </ion-item>
             <ion-item>
-              <ion-label>100 USD</ion-label>
+              <ion-label>{{total}} USD</ion-label>
             </ion-item>
           </ion-list>
         </div>
@@ -29,7 +29,7 @@
               <ion-label>Items</ion-label>
             </ion-item>
             <ion-item>
-              <ion-label>12 Pcs</ion-label>
+              <ion-label>{{count}} Pcs</ion-label>
             </ion-item>
           </ion-list>
         </div>
@@ -41,7 +41,7 @@
               <ion-label>VAT</ion-label>
             </ion-item>
             <ion-item>
-              <ion-label>1.5</ion-label>
+              <ion-label>{{vat}} USD</ion-label>
             </ion-item>
           </ion-list>
         </div>
@@ -49,22 +49,36 @@
     </ion-row>
   </ion-grid>
 
-  <ion-list>
-    <ion-item>
-      <button ion-button block color="primary" (click)="qrscan()">Sales QR Scan</button>
-    </ion-item>
-    <ion-item>
-      <button ion-button block color="secondary" (click)="addproduct()">Add Products</button>
-      <button ion-button block color="secondary" (click)="showproduct()">Show Products</button>
-      <button ion-button block color="secondary" (click)="addcategory()">Add Category</button>
-      <button ion-button block color="secondary" (click)="showcategory()">Show Category</button>
-      <button ion-button block color="secondary" (click)="addcustomer()">Add Customer</button>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block color="primary" (click)="manual()">Manual Entry</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block color="primary" (click)="qrscan()">Sales QR Scan</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block color="secondary" (click)="addproduct()">Add Products</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block color="secondary" (click)="showproduct()">Show Products</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button round block color="secondary" (click)="reset()">Reset</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-footer>
     <ion-toolbar>
-      <ion-title>QR Scan mPOS ® 2019</ion-title>
+      <ion-title>Barcode mPOS - Basic</ion-title>
     </ion-toolbar>
   </ion-footer>
 </ion-content>
