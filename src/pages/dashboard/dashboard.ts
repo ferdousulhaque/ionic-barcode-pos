@@ -118,6 +118,9 @@ export class DashboardPage {
     this.getset.setTotal(0);
     this.getset.setCount(0);
     this.getset.setVat(0);
+    this.total = 0;
+    this.count = 0;
+    this.vat = 0;
     let toast = this.toastCtrl.create({
       message: "POS reset to Zero",
       duration: 2000

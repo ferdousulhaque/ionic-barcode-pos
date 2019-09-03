@@ -40,11 +40,16 @@ export class SingleProductPage {
       "price": this.product.price
     };
 
-    console.log(data);
-
-    /* this.sp.updateProduct(data, this.prodCodeOld).then(()=>{
-      alert("Product Added Successfully")
-    }) */
+    this.sp.updateProduct(data, this.prodCodeOld).then(()=>{
+      setTimeout(() => {
+        let toast = this.toastCtrl.create({
+          message: "Product Updated !!",
+          duration: 2000
+        });
+        toast.present();
+        this.navCtrl.setRoot(ListPage);
+      }, 1000)
+    })
   }
 
   deleteproduct(data){
