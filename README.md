@@ -29,8 +29,11 @@ This code is for ionic based barcode POS system. You can do the following using 
   - Get & Set for the Count
   - Get & Set for the VAT
 
-## Snapshots
+## Thank you for checking out my app
 
+You can also find the app at the Ionic Starter App in the ionic store.
+
+## Snapshots
 
 <img alt="Snapshot 01" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-01.png" width="180" height="300">
 
@@ -39,8 +42,3 @@ This code is for ionic based barcode POS system. You can do the following using 
 <img alt="Snapshot 03" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-03.png" width="180" height="300">
 
 <img alt="Snapshot 04" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-04.png" width="180" height="300">
-
-## Thank you for checking out my app
-
-You can also find the app at the Ionic Starter App in the ionic store.
-
