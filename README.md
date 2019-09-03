@@ -35,6 +35,8 @@ You can also find the app at the Ionic Starter App in the ionic store.
 
 ## Snapshots
 
+<p float="left">
+
 <img alt="Snapshot 01" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-01.png" width="180" height="300">
 
 <img alt="Snapshot 02" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-02.png" width="180" height="300">
@@ -42,3 +44,5 @@ You can also find the app at the Ionic Starter App in the ionic store.
 <img alt="Snapshot 03" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-03.png" width="180" height="300">
 
 <img alt="Snapshot 04" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-04.png" width="180" height="300">
+
+</p>
