@@ -15,18 +15,25 @@ export class StorageProvider {
   constructor(
     private storage: Storage,
               ) {
-                /* this.storage.ready().then(() => {
-                    this.storage.set('products', JSON.stringify([]));
-                }); */
               }
 
   addProduct(data){
     this.storage.ready().then(() => {
       this.storage.get('products').then((val) => {
-        this.products = JSON.parse(val);
-        this.products.push(data);
-        this.storage.set('products', JSON.stringify(this.products));
-        this.products = JSON.stringify(this.products)
+        if(val === null){
+          this.storage.set('products', "[]").then(() => {
+            this.storage.get('products').then((valNull) => {
+              this.products = JSON.parse(valNull);
+              this.products.push(data);
+              this.storage.set('products', JSON.stringify(this.products));
+            })
+          })
+        }else{
+          this.products = JSON.parse(val);
+          this.products.push(data);
+          this.storage.set('products', JSON.stringify(this.products));
+        }
+        //this.products = JSON.stringify(this.products)
       }).catch(err => {
         alert(err);
       })
@@ -38,14 +45,17 @@ export class StorageProvider {
   }
 
   searchProduct(barcode){
-    let needle = {};
+    let needle = null;
     return new Promise((resolve, reject) => {
       this.storage.ready().then(() => {
         this.storage.get('products').then((val) => {
-          this.products = JSON.parse(val);
-          needle = this.products.filter((product) => {
-            return (product.code === barcode);
-          })
+          if(val != null){
+            this.products = JSON.parse(val);
+            needle = this.products.filter((product) => {
+              return (product.code === barcode);
+            })
+          }
+          
           resolve(needle);
         }).catch(err => {
           alert(err+1);

@@ -26,6 +26,7 @@ export class ListPage {
   getProducts(){
     this.sp.storageReady().then(() => {
       this.sp.getProducts().then((val) => {
+        //alert(val);
         this.listProducts = JSON.parse(val);
       }).catch(err => {
         alert("Error: "+ err);
