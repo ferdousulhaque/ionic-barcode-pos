@@ -31,10 +31,14 @@ This code is for ionic based barcode POS system. You can do the following using 
 
 ## Snapshots
 
-![Snapshot 01](https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-01.png)
-![Snapshot 02](https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-02.png)
-![Snapshot 03](https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-03.png)
-![Snapshot 04](https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-04.png)
+
+<img alt="Snapshot 01" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-01.png" width="180" height="300">
+
+<img alt="Snapshot 02" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-02.png" width="180" height="300">
+
+<img alt="Snapshot 03" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-03.png" width="180" height="300">
+
+<img alt="Snapshot 04" src="https://raw.githubusercontent.com/ferdousulhaque/ionic-barcode-pos/master/snapshots/snapshot-04.png" width="180" height="300">
 
 ## Thank you for checking out my app
 
