@@ -31,7 +31,9 @@ This code is for ionic based barcode POS system. You can do the following using 
 
 ## Thank you for checking out my app
 
-You can also find the app at the Ionic Starter App in the ionic store.
+You can also find the app at the Ionic Starter App in the ionic store. Link below:
+
+https://market.ionicframework.com/starters/barcode-mpos
 
 ## Snapshots
 
