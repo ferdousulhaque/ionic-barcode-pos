@@ -28,7 +28,7 @@
     "@ionic-native/status-bar": "~4.20.0",
     "@ionic-native/toast": "^4.20.0",
     "@ionic/storage": "^2.2.0",
-    "cordova-android": "7.0.0",
+    "cordova-android": "11.0.0",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^4.0.0",
